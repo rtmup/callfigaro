@@ -1,0 +1,234 @@
+@charset 'utf-8';
+@import 'foundation_normalize';
+@import 'foundation_grid';
+
+// mixins
+
+@mixin image-set($img1,$img2) {
+    background-image:url("#{$img1}");
+    background-image: -webkit-image-set(url("#{$img1}") 1x, url("#{$img2}") 2x);
+    background-image: -moz-image-set(url("#{$img1}") 1x, url("#{$img2}") 2x);
+    background-image: -p-image-set(url("#{$img1}") 1x, url("#{$img2}") 2x);
+    background-image: -ms-image-set(url("#{$img1}") 1x, url("#{$img2}") 2x);
+    background-image: image-set(url("#{$img1}") 1x, url("#{$img2}") 2x);
+    /* fallback for IE8
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src="#{$img1}",
+    sizingMethod="scale");
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='#{$img1}',
+    sizingMethod='scale')"; */
+}
+@mixin background-size($background-size) {
+    -webkit-background-size: $background-size;
+    -moz-background-size: $background-size;
+    -o-background-size: $background-size;
+    background-size: $background-size;
+}
+
+/* ================ SITE STYLING ================ 
+
+1. Universal
+2. How it works
+3. Pricing
+4. Reviews
+5. Meet the founder
+
+*/
+
+// ================ 1. Universal ================ //
+
+p, li {
+	font-size: 1.125rem;
+    font-weight: 200;
+    letter-spacing: .4px;
+    margin: 0 0 1.5rem 0;
+}
+h2, h3 {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+h2 {
+    margin: 0;
+}
+h3 {
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    color: #1E6279;
+    margin: 1rem 0 0 0;
+}
+hr {
+    border: solid #dddddd;
+    border-width: 1px 0 0;
+    clear: both;
+    height: 0;
+    margin: 1.25 0 1.1875rem;
+}
+.button {
+    background: #1E657E;
+    border-radius: 6px;
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    &:hover {
+        background: #003A4D;
+    }
+}
+
+// helper classes
+.full-width {
+    max-width: 100%;
+}
+.list-bulletless {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.stripe-color {
+    background: #1a5569;
+}
+.text-center {
+    text-align:center;
+}
+.dark-bg {
+    p,h1,h2,h3,h4,h5,h6,hr,li {
+        color: #fff;
+    }
+    .button {
+        background: none;
+        color: #fff;
+        border: solid 1px #fff;
+        &:hover {
+            background: #fff;
+            color: #1a5569;
+        }
+    }
+}
+
+// section styling
+.section-default {
+	padding: 2rem 0;
+}
+.section-final {
+    margin: 2rem 0 0 0;
+    padding: 2rem 0;
+}
+
+// top hero unit
+.hero {
+    position: relative;
+	background: no-repeat center center #000;
+    @include image-set('../img/cover-image.jpg','../img/cover-image.jpg'); 
+    @include background-size(cover);
+	padding: 2rem 0;
+    &:before {
+        background: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        background: -webkit-radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: 0;
+    }
+    .hero-wrapper-inner {
+        position: relative;
+    }
+    .hero-title {
+        font-weight: 800;
+        font-size: 2rem;
+        margin: 0;
+    }
+	.hero-description {
+		font-size: 1.5rem;
+		letter-spacing: 1px;
+		font-weight: 200;
+        line-height: 1.3;
+        margin: .5rem 0 1rem 0;
+	}
+}
+footer {
+    padding: 1rem 0;
+    background: #000;
+    color: #fff;
+    p {
+        margin: 0;
+    }
+}
+
+// ================ 2. How it works ================ //
+
+.step-number {
+    font-size: 1.5rem;
+}
+
+// ================ 3. Pricing ================ //
+
+
+// ================ 4. Reviews ================ //
+.review-wrapper {
+    margin: 1rem auto;
+}
+.review-stars {
+    margin-bottom: 10px;
+}
+.headshot-review {
+	float:left;
+	max-width: 100px;
+    margin: 0 20px 20px 0;
+}
+.image-rounded {
+    width: 40%;
+    vertical-align: bottom;
+    display: inline-block;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+}
+
+
+// ================ 5. Meet the founder ================ //
+.img-gallery {
+    img {
+        margin: .5rem 0;
+        display: block;
+    }
+}
+
+
+/*************************************************************/
+/*************************************************************/
+/*** medium up ***/
+@media only screen and (min-width: 40em) { 
+    .show-for-small-only {
+        display: none;
+    }
+    .hero {
+        padding: 6rem 0 8rem 0;
+        .hero-title {
+            font-weight: 800;
+            font-size: 4rem;
+        }
+        .hero-description {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+    }
+    h2 {
+        font-size: 2.125rem;
+    }
+    .review-text {
+        margin-left: 7.5rem;
+    }
+    .review-wrapper {
+        margin: 1.5rem auto;
+    }
+    .section-default {
+        padding: 3.75rem 0;
+    }
+}
