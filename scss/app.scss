@@ -2,6 +2,8 @@
 @import 'foundation_normalize';
 @import 'foundation_grid';
 
+$ultra-marine: #005594;
+
 // mixins
 
 @mixin image-set($img1,$img2) {
@@ -65,7 +67,7 @@ hr {
     margin: 1.25 0 1.1875rem;
 }
 .button {
-    background: #1E657E;
+    background: $ultra-marine;
     border-radius: 6px;
     display: inline-block;
     color: #fff;
@@ -75,7 +77,7 @@ hr {
     padding: 1rem 2rem;
     text-decoration: none;
     &:hover {
-        background: #003A4D;
+        background: darken($ultra-marine, 5%);
     }
 }
 
@@ -89,7 +91,7 @@ hr {
     padding: 0;
 }
 .stripe-color {
-    background: #1a5569;
+    background: $ultra-marine;
 }
 .text-center {
     text-align:center;
@@ -122,12 +124,12 @@ hr {
 .hero {
     position: relative;
 	background: no-repeat center center #000;
-    @include image-set('../img/cover-image.jpg','../img/cover-image.jpg'); 
+    @include image-set('https://s3.amazonaws.com/mobile-barber/site-elements/cover-image.jpg','https://s3.amazonaws.com/mobile-barber/site-elements/cover-image.jpg'); 
     @include background-size(cover);
 	padding: 2rem 0;
     &:before {
         background: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-        background: -webkit-radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        background: -webkit-radial-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
         bottom: 0;
         content: "";
         display: block;
